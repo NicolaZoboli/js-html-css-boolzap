@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* -------------------- background di pagina-------------------- */
+
+.background {
+  height: 100vh;
+  position: relative;
+}
+
+.background-up {
+  height: 13vh;
+  background-color: #009688;
+}
+
+.background-down {
+  height: 87vh;
+  background-color: #d7dbd7;
+}
+
+/* -------------------- container app-------------------- */
+
+
+.container-whatsapp {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 95%;
+  width: 70%;
+  background-color: white;
+}
+
+/* -------------------- scrollbar laterale -------------------- */
+
+
+#scrollbar-laterale {
+  height: 100%;
+  width: 30%;
+  border-right: 0.5px solid lightgrey;
+}
+
+/* -------------------- header della scrollbar -------------------- */
+
+
+#header-scrollbar {
+  height: 7%;
+  background-color: #ededed;
+}
+
+/* -------------------- main della scrollbar -------------------- */
+
+
+#main-scrollbar {
+  height: 93%;
+  background-color: white;
+}
+
+/* -------------------- sezione chat -------------------- */
+
+#chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 70%;
+  /* background-color: green; */
+}
+
+/* -------------------- header della chat -------------------- */
+
+
+#header-chat {
+  height: 7%;
+  background-color: #ededed;
+}
+
+/* -------------------- main della chat -------------------- */
+
+
+#main-chat {
+  background-image: url("../img/backgroundChat.png");
+  height: 86%;
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+/* -------------------- footer della chat -------------------- */
+
+#footer-chat {
+  height: 7%;
+  background-color: #ededed;
+}
