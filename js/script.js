@@ -58,10 +58,21 @@ function getActualHour() {
   return date.getHours() + ":" + date.getMinutes();
 }
 
+function filter() {
+  $("#search-chat-input").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $(".chat-singola").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+}
+
 
 function init() {
 
   addSendListener();
+
+  filter();
 }
 
 $(document).ready(init);
