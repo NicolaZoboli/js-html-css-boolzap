@@ -7,7 +7,6 @@ function addSendListener() {
 }
 
 function sendKeyup(event) {
-  console.log(event.which);
 
   var key = event.which;
   var input = $(this);
@@ -17,6 +16,8 @@ function sendKeyup(event) {
     input.val("");
 
     sendMessage(txt);
+
+    setTimeout(sendAnswer, 1000);
   }
 }
 
@@ -28,6 +29,8 @@ function sendClick() {
     input.val("");
 
     sendMessage(txt);
+
+    setTimeout(sendAnswer, 1000);
   }
 }
 
@@ -35,8 +38,17 @@ function sendMessage(txt) {
   var template = $("#template-message-sent > div").clone();
   var target = $("#right-messages");
 
-  template.find("#message-text").text(txt);
-  template.find("#message-time").text(getActualHour());
+  template.find("#message-text-sent").text(txt);
+  template.find("#message-time-sent").text(getActualHour());
+
+  target.append(template);
+}
+
+function sendAnswer() {
+  var template = $("#template-message-received > div").clone();
+  var target = $("#right-messages");
+
+  template.find("#message-time-received").text(getActualHour());
 
   target.append(template);
 }
@@ -45,6 +57,7 @@ function getActualHour() {
   var date = new Date();
   return date.getHours() + ":" + date.getMinutes();
 }
+
 
 function init() {
 
