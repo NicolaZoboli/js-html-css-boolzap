@@ -337,11 +337,6 @@ a {
   display: none;
 }
 
-.messages-container .message:hover .message-options
-/* .messages-container .message:hover .message-options-panel  */ {
-  display: block;
-}
-
 .messages-container .message .message-options-panel {
   position: absolute;
 
@@ -350,6 +345,8 @@ a {
 
   width: 150px;
   height: 80px;
+
+  z-index: 150;
 
   background-color: white;
   border-radius: 10px;

@@ -53,6 +53,25 @@ function sendAnswer() {
   target.append(template);
 }
 
+function dropdownMessageMenu() {
+  $(document).on("mouseenter", ".message", function () {
+    $(this).find(".message-options").show();
+  });
+
+  $(document).on("mouseleave", ".message", function () {
+    $(this).find(".message-options").hide();
+    $(this).find(".message-options-panel").hide();
+  });
+
+  $(document).on("click", ".message-options", function () {
+    $(this).siblings(".message-options-panel").toggle();
+  });
+
+  $(document).on("click", ".message-destroy", function () {
+    $(this).parents(".message").hide();
+  });
+}
+
 function getActualHour() {
   var date = new Date();
   return date.getHours() + ":" + date.getMinutes();
@@ -73,6 +92,9 @@ function init() {
   addSendListener();
 
   filter();
+
+  dropdownMessageMenu();
+
 }
 
 $(document).ready(init);
