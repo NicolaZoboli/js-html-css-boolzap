@@ -176,7 +176,7 @@ a {
 
 /* -------------------- sezione chat aperte nella scrollbar -------------------- */
 
-#main-scrollbar .chat-aperte {
+#main-scrollbar .contacts {
   display: flex;
   flex-direction: column;
 
@@ -186,7 +186,7 @@ a {
   overflow: auto;
 }
 
-#main-scrollbar .chat-aperte .chat-singola {
+#main-scrollbar .contacts .contact {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -195,19 +195,23 @@ a {
   height: 80px;
 }
 
-#main-scrollbar .chat-aperte .chat-singola:hover {
+#main-scrollbar .contacts .contact.active {
   background-color: #e9ebeb;
 }
 
-#main-scrollbar .chat-aperte .chat-singola > * {
+#main-scrollbar .contacts .contact:hover {
+  background-color: #e9ebeb;
+}
+
+#main-scrollbar .contacts .contact > * {
   margin-left: 20px;
 }
 
-#main-scrollbar .chat-aperte .chat-singola img {
+#main-scrollbar .contacts .contact img {
   height: 35px;
 }
 
-#main-scrollbar .chat-aperte .chat-singola .time {
+#main-scrollbar .contacts .contact .time {
   position: absolute;
   top: 20%;
   right: 5%;
@@ -215,11 +219,11 @@ a {
   color: #c6c8ca;
 }
 
-#main-scrollbar .chat-aperte .chat-singola .chat-singola-text h3 {
+#main-scrollbar .contacts .contact .contact-text h3 {
   font-size: 17px;
 }
 
-#main-scrollbar .chat-aperte .chat-singola .chat-singola-text span {
+#main-scrollbar .contacts .contact .contact-text span {
   color: #c6c8ca;
   font-size: 13px;
 }
@@ -244,6 +248,14 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#header-chat .container-info-contatto {
+  display: none;
+}
+
+#header-chat .container-info-contatto.active {
+  display: block;
 }
 
 #header-chat .info-contatto {
@@ -305,6 +317,7 @@ a {
   clear: both;
 
   min-width: 25%;
+  max-width: 50%;
   padding: 15px;
 
   margin: 10px;
@@ -313,7 +326,6 @@ a {
   background: white;
 
   border-radius: 10px;
-  z-index: 100;
 
   font-size: 15px;
 }
@@ -362,6 +374,14 @@ a {
   font-size: 14px;
 
   text-align: center;
+}
+
+.messages-container .right-messages {
+  display: none;
+}
+
+.messages-container .right-messages.active {
+  display: block;
 }
 
 /* -------------------- footer della chat -------------------- */

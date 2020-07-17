@@ -36,7 +36,7 @@ function sendClick() {
 
 function sendMessage(txt) {
   var template = $("#template-message-sent > div").clone();
-  var target = $("#right-messages");
+  var target = $(".right-messages.active");
 
   template.find("#message-text-sent").text(txt);
   template.find("#message-time-sent").text(getActualHour());
@@ -46,7 +46,7 @@ function sendMessage(txt) {
 
 function sendAnswer() {
   var template = $("#template-message-received > div").clone();
-  var target = $("#right-messages");
+  var target = $(".right-messages.active");
 
   template.find("#message-time-received").text(getActualHour());
 
@@ -72,6 +72,35 @@ function dropdownMessageMenu() {
   });
 }
 
+function addContactClickListener() {
+  var contacts = $('.contacts .contact');
+  contacts.click(contactClick);
+}
+
+function contactClick() {
+
+  var clickedContact = $(this);
+  var id = clickedContact.data('id');
+  var contacts = $('.contacts .contact');
+
+  var conversations = $('.right-messages');
+  var selectedConv = $('.right-messages[data-id=' + id + ']');
+
+  var contactsInfo = $('.container-info-contatto');
+  var selectedContactInfo = $('.container-info-contatto[data-id=' + id + ']');
+
+  contacts.removeClass('active');
+  clickedContact.addClass('active');
+
+  conversations.removeClass('active');
+  selectedConv.addClass('active');
+
+  contactsInfo.removeClass('active');
+  selectedContactInfo.addClass('active');
+
+  console.log('id', id);
+}
+
 function getActualHour() {
   var date = new Date();
   return date.getHours() + ":" + date.getMinutes();
@@ -80,7 +109,7 @@ function getActualHour() {
 function filter() {
   $("#search-chat-input").on("keyup", function () {
     var value = $(this).val().toLowerCase();
-    $(".chat-singola").filter(function () {
+    $(".contact").filter(function () {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
@@ -95,6 +124,7 @@ function init() {
 
   dropdownMessageMenu();
 
+  addContactClickListener();
 }
 
 $(document).ready(init);
